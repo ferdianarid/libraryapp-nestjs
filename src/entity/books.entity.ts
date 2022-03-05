@@ -2,7 +2,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({ name: "books" })
 export class BookEntity {
-
        @PrimaryGeneratedColumn()
        id: number
 
@@ -15,6 +14,6 @@ export class BookEntity {
        @Column()
        publisher: string
 
-       @Column({ length: 1000 })
+       @Column()
        description: string
 }
