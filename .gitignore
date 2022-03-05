@@ -13,6 +13,8 @@ lerna-debug.log*
 
 # secret
 ormconfig.json
+uploads/
+apis/
 
 # OS
 .DS_Store
