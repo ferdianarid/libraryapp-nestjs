@@ -14,9 +14,10 @@ lerna-debug.log*
 # secret
 ormconfig.json
 uploads/**/*
-uploads
+uploads/bookImages/
 src/apis/*
-src/apis
+src/apis/index.ts
+./src/apis/index.ts
 
 # OS
 .DS_Store
