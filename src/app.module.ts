@@ -5,10 +5,11 @@ import { AppService } from 'app.service';
 import { CreateBooksMiddlewares, DeleteBooksMiddleware, GetBooksMiddleware, UpdateBooksMiddleware } from 'common/middlewares/books.middleware';
 import { BooksModule } from 'modules/books.module';
 import { ImagesModule } from 'modules/images.module';
+import { BooksController } from './books/books.controller';
 
 @Module({
 	imports: [BooksModule, TypeOrmModule.forRoot(), ImagesModule],
-	controllers: [AppController],
+	controllers: [AppController, BooksController],
 	providers: [AppService],
 })
 

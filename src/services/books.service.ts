@@ -7,7 +7,7 @@ import { FilterBookDto } from 'dto/filter.books.dto';
 import { ResponseBook } from 'dto/response.books.dto';
 
 @Injectable()
-export class BookService {
+export class BooksService {
        constructor(@InjectRepository(BookEntity) private bookRepository: Repository<BookEntity>) { }
 
        async getBooks(filterBookDto: FilterBookDto): Promise<any> {
