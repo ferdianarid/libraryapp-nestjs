@@ -4,9 +4,15 @@ import { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger'
 import { ExpressSwaggerCustomOptions } from 'interfaces/IExpressSwagger'
 import { AppModule } from 'app.module'
+import { ConfigService } from '@nestjs/config'
 
 async function bootstrap() {
 	const NestApp = await NestFactory.create<NestExpressApplication>(AppModule);
+
+	const configServices = NestApp.get(ConfigService)
+
+	const PORT = configServices.get("port")
+
 	NestApp.enableVersioning({
 		defaultVersion: "1",
 		type: VersioningType.URI,
@@ -28,6 +34,8 @@ async function bootstrap() {
 
 	SwaggerModule.setup("/apis", NestApp, SwaggerDocument, ExSwaggerCustomOptions)
 
-	await NestApp.listen(8888)
+	console.log(PORT);
+
+	await NestApp.listen(PORT)
 }
 bootstrap()

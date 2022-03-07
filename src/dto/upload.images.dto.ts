@@ -1,3 +1,3 @@
 export class UploadImagesDto {
-       name: string
+	name: string
 }
