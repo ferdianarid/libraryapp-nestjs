@@ -68,7 +68,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- LinkedIn - [Ferdian Ahmad R](linkedin.com/in/ferdianar/)
+- LinkedIn - [Ferdian Ahmad R](https://linkedin.com/in/ferdianar/)
 - Instagram - [Ferdian Ahmad R](https://www.instagram.com/ferdianarid/)
 - Twitter - [Ferdian Ahmad R](https://twitter.com/FerdianAhmadR2)
 
