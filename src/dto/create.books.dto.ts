@@ -15,4 +15,10 @@ export class CreateBookDto {
 
        @ApiProperty()
        description: string
+
+       @ApiProperty()
+       created_at?: Date
+
+       @ApiProperty()
+       updated_at?: Date
 }
