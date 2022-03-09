@@ -1,10 +1,10 @@
 {
     "name": "library-app",
-    "version": "0.0.1",
-    "description": "",
-    "author": "",
+    "version": "1.1.1",
+    "description": "Library App about Lending or Sale a Book to public",
+    "author": "ferdian",
     "private": true,
-    "license": "UNLICENSED",
+    "license": "Mozilla Public License",
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "nest build",

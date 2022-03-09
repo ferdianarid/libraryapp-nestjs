@@ -3,8 +3,8 @@ import { VersioningType } from '@nestjs/common'
 import { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger'
 import { ExpressSwaggerCustomOptions } from 'interfaces/IExpressSwagger'
-import { AppModule } from 'app.module'
 import { ConfigService } from '@nestjs/config'
+import { AppModule } from 'app.module'
 
 async function bootstrap() {
 	const NestApp = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -34,7 +34,7 @@ async function bootstrap() {
 
 	SwaggerModule.setup("/apis", NestApp, SwaggerDocument, ExSwaggerCustomOptions)
 
-	console.log(PORT);
+	console.log(`Server running on port ${PORT}`);
 
 	await NestApp.listen(PORT)
 }
