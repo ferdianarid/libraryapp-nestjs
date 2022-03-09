@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { mockImagesData } from "apis"
+import { ResponseImages } from 'dto/response.images.dto';
 
 @Injectable()
 export class ImagesService {
-	async getImages(): Promise<Object> {
+	async getImages(): Promise<ResponseImages> {
 		return {
 			status: 200,
 			method: "GET",

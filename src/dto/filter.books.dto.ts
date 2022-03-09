@@ -1,3 +1,6 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class FilterBookDto {
-       title: string
+       @ApiProperty()
+       title?: string
 }

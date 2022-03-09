@@ -3,6 +3,7 @@ import { BookEntity } from 'entity/books.entity';
 import { BookService } from 'services/books.service';
 import { FilterBookDto } from 'dto/filter.books.dto';
 import { CreateBookDto } from 'dto/create.books.dto';
+import { ResponseBook } from 'dto/response.books.dto';
 import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller({ path: "books" })
@@ -15,7 +16,8 @@ export class BooksController {
        @ApiCreatedResponse({
               description: "Successfully Get All Books"
        })
-       public async getBooks(@Query() filterBookDto: FilterBookDto): Promise<BookEntity[]> {
+       public async getBooks(@Query() filterBookDto: FilterBookDto): Promise<ResponseBook | BookEntity[]> {
+              // default return is <BookEntity[]>
               return this._bookService.getBooks(filterBookDto)
        }
 
@@ -24,7 +26,8 @@ export class BooksController {
        @ApiCreatedResponse({
               description: "The Book has been successfully finded"
        })
-       getOneBook(@Param() params): Promise<BookEntity> {
+       getOneBook(@Param() params): Promise<ResponseBook> {
+              // default return <BookEntity>
               return this._bookService.findOne(params.id)
        }
 
@@ -33,7 +36,8 @@ export class BooksController {
        @ApiCreatedResponse({
               description: "The Book has been successfully created"
        })
-       async createBook(@Body() bodyData: CreateBookDto): Promise<BookEntity> {
+       async createBook(@Body() bodyData: CreateBookDto): Promise<ResponseBook> {
+              // default return is <BookEntity>
               return this._bookService.createBooks(bodyData)
        }
 
@@ -42,7 +46,8 @@ export class BooksController {
        @ApiCreatedResponse({
               description: "The Book has been successfully updated"
        })
-       public async updateBooks(@Param() params, @Body() data: CreateBookDto): Promise<BookEntity> {
+       public async updateBooks(@Param() params, @Body() data: CreateBookDto): Promise<ResponseBook> {
+              // default return is <BookEntity>
               return this._bookService.updateBooks(params.id, data)
        }
 
@@ -51,14 +56,19 @@ export class BooksController {
        @ApiCreatedResponse({
               description: "The Book has been successfully deleted"
        })
-       public async deleteBooks(@Param() params): Promise<any> {
+       public async deleteBooks(@Param() params): Promise<ResponseBook> {
+              // default return is <BookEntity>
               return this._bookService.deleteBooks(params.id)
        }
 
        @ApiTags("books v2")
        @Version("2")
        @Get()
-       public getBookControllerv2() {
+       @ApiCreatedResponse({
+              description: "The Book has been successfully created"
+       })
+       public async getBookControllerv2(): Promise<ResponseBook> {
+              // default return is <BookEntity>
               return this._bookService.bookControllerv2()
        }
 }
