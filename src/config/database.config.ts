@@ -1,6 +1,7 @@
 import { registerAs } from "@nestjs/config";
 import { BookDetailEntity } from "entity/books.detail.entity";
 import { BookEntity } from "entity/books.entity";
+import { UsersEntity } from "entity/users.entity";
 
 export default registerAs("database", () => ({
 	type: "mysql",
@@ -10,5 +11,5 @@ export default registerAs("database", () => ({
 	password: process.env.DATABASE_PASSWORD,
 	database: process.env.DATABASE_NAME,
 	syncronize: false,
-	entities: [BookEntity, BookDetailEntity],
+	entities: [BookEntity, BookDetailEntity, UsersEntity],
 }))
