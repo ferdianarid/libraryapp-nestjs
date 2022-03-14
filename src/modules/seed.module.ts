@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BookEntity } from "entity/books.entity";
 import databaseConfig from "config/database.config";
 import { BookSeedService } from "services/books.seed.service";
+import { UsersEntity } from 'entity/users.entity';
+import { UsersSeedServices } from 'services/users.seed.service';
 
 @Module({
    imports: [
@@ -21,9 +23,9 @@ import { BookSeedService } from "services/books.seed.service";
          },
          inject: [ConfigService],
       }),
-      TypeOrmModule.forFeature([BookEntity]),
+      TypeOrmModule.forFeature([BookEntity, UsersEntity]),
    ],
 
-   providers: [BookSeedService],
+   providers: [BookSeedService, UsersSeedServices],
 })
 export class SeedModule { }
