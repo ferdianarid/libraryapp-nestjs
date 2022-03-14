@@ -4,7 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger'
 import { ExpressSwaggerCustomOptions } from 'interfaces/IExpressSwagger'
 import { ConfigService } from '@nestjs/config'
-import { AppModule } from 'app.module'
+import { AppModule } from 'modules/app.module'
 
 async function bootstrap() {
 	const NestApp = await NestFactory.create<NestExpressApplication>(AppModule);
