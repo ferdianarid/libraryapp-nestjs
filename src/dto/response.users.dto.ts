@@ -8,6 +8,9 @@ export class ResponseUsers {
     method: string
 
     @ApiProperty()
+    message?: string
+
+    @ApiProperty()
     api_version: string
 
     @ApiProperty()
