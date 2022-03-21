@@ -20,11 +20,25 @@ export class UsersController {
         @Body("confirm_password") confirm_password: string
     ): Promise<ResponseUsers> {
 
-        const hashPassword = await bcrypt.hash(password, 12)
-        const hashConfirmPassword = await bcrypt.hash(confirm_password, 12)
+        try {
+            const hashPassword = await bcrypt.hash(password, 12)
+            const hashConfirmPassword = await bcrypt.hash(confirm_password, 12)
 
-        return this.usersService.RegisterUsers({
-            username, name, email, password: hashPassword, confirm_password: hashConfirmPassword
-        })
+            const user = {
+                username, name, email, password: hashPassword, confirm_password: hashConfirmPassword
+            }
+
+            const newUser = this.usersService.RegisterUsers(user)
+
+            return {
+                status: 200,
+                method: "POST",
+                api_version: "v1",
+                message: "Successfully create user",
+                data: { username, name, email }
+            }
+        } catch (error) {
+            return error.message
+        }
     }
 }
