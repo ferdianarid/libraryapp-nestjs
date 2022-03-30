@@ -25,6 +25,7 @@
 Developer   |   Ferdian Ahmad R ( Frontend Developer )
 
 ## Participated in Nest.js StudyJam by Nest Academy
+Learn about how to create and designing API using Nest.js
 
 ## Description
 
